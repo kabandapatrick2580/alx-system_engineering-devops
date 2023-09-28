@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# the script that displays number from 1 to 20
+
+j=1
+while [ $j -le 20 ]
+do
+	echo $j
+	case $j in 
+		4)
+			echo "bad luck from China"
+			;;
+		9)
+			echo "bad luck from Japan"
+			;;
+		17)
+			echo "bad luck from Italy"
+			;;
+
+	esac
+
+		((j++))
+done
