@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # Listen on port 98
-nc -l -p 98
+nc -l -p 98 -c 'while true; do read line; echo "Received: $line"; done'
