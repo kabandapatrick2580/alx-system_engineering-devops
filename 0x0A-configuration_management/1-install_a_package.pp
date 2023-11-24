@@ -1,5 +1,4 @@
-# Install Flask using pip3
-package { 'flask':
-  ensure   => '2.1.0',
-  provider => pip3,
+# manifest that kills exec process named killmenow
+exec { 'pkill -f killmenow':
+  path => '/usr/bin/:/usr/local/bin/:/bin/'
 }
