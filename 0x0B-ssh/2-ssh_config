@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# configuration to connect to server without needing password
+Host 54.242.119.11
+    IdentityFile /.ssh/school
+    PasswordAuthentication no
