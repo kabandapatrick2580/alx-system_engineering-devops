@@ -1,0 +1,1 @@
+ssh-copy-id -i ~/.ssh/school ubuntu@54.242.119.11
