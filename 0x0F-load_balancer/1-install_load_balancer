@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Replace STUDENT_ID with your actual student ID
-STUDENT_ID=306856
+STUDENT_ID="306856"
 
 # Install HAProxy
 sudo apt-get -y install software-properties-common
