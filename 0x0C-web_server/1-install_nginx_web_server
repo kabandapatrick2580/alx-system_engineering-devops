@@ -1,9 +1,32 @@
 #!/usr/bin/env bash
 # Install nginx on your web-01
 
-sudo apt-get update -y
-sudo apt-get install nginx -y
+# update package list on the remote sever
+ssh ubuntu@52.86.114.220 "sudo apt update"
 
-echo 'Hello World!' > /var/www/html/index.html
+# install nginx on the remote server
+ssh ubuntu@52.86.114.220 "sudo apt install -y nginx"
 
-service nginx start
+# create a default nginx configuration file on the remote server
+ssh ubuntu@52.86.114.220 "sudo tee /etc/nginx/sites-available/default >>EOF
+server {
+    listen 80;
+    server_name _;
+
+    location / {
+        echo \"Hello World\";
+    }
+}
+EOF"
+
+# Create a symbolic link to enable the default site on the remote server
+ssh ubuntu@52.86.114.220 "sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/"
+
+# Test Nginx
+ssh ubuntu@52.86.114.220 "sudo nginx -t"
+
+# Restart Nginx on the remote server (without using systemctl)
+ssh ubuntu@52.86.114.220 "sudo /etc/init.d/nginx restart"
+
+# Display a message indicating a successful configuration
+echo "Nginx has been installed and configured on the server with IP 52.86.114.220
