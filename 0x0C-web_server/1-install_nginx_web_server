@@ -2,16 +2,16 @@
 # Install nginx on your web-01
 
 # update package list on the remote sever
-ssh ubuntu@52.86.114.220 "sudo apt update"
+sudo apt update
 
 # install nginx on the remote server
-ssh ubuntu@52.86.114.220 "sudo apt install -y nginx"
+sudo apt install -y nginx
 
 # create a default nginx configuration file on the remote server
-ssh ubuntu@52.86.114.220 "sudo echo 'Hello World!' > /var/www/html/index.nginx-debian.html"
+sudo bash -c "echo 'Hello World!' > /var/www/html/index.html"
 
 # Test Nginx
-ssh ubuntu@52.86.114.220 "sudo nginx -t"
+sudo nginx -t
 
 # Restart Nginx on the remote server (without using systemctl)
-ssh ubuntu@52.86.114.220 "sudo service ngninx restart" 
+sudo service nginx restart
