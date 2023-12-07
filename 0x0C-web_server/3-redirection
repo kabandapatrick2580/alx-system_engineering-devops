@@ -5,7 +5,7 @@ sudo apt-get install nginx -y
 
 echo 'Hello World!' | sudo tee /var/www/html/index.html
 
-replace="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.linkedin.com/feed/ permanent;"
+replace="server_name _;\n\trewrite ^\/redirect_me https:\/\/genarts.tech/ permanent;"
 
 sudo sed -i "s/server_name _;/$replace/" /etc/nginx/sites-enabled/default
 
