@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # configuring nginx to direct on another page
-sudo apt-get update -y
-sudo apt-get install nginx -y
+ssh ubuntu@52.86.114.220 'sudo apt-get update -y'
+ssh ubuntu@52.86.114.220 'sudo apt-get install nginx -y'
 
-echo 'Hello World!' | sudo tee /var/www/html/index.html
+ssh ubuntu@52.86.114.220 'echo 'Hello World!' | sudo tee /var/www/html/index.html'
 
-replace="server_name _;\n\trewrite ^\/redirect_me https:\/\/linkedin.com/feed/ permanent;"
+ssh ubuntu@52.86.114.220 'replace="server_name _;\n\trewrite ^\/redirect_me https:\/\/linkedin.com/feed/ permanent;"'
 
-sudo sed -i "s/server_name _;/$replace/" /etc/nginx/sites-enabled/default
+ssh ubuntu@52.86.114.220 'sudo sed -i "s/server_name _;/$replace/" /etc/nginx/sites-enabled/default'
 
-sudo service nginx restart
+ssh ubuntu@52.86.114.220 'sudo service nginx restart'
