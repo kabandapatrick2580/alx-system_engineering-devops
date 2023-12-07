@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-# configuration to connect to server without needing password
-Host 100.25.221.141
-    IdentityFile /.ssh/id_rsa
-    PasswordAuthentication no
