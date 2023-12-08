@@ -10,7 +10,7 @@ domain_info() {
     if [ -z "$line" ]; then
         echo "The subdomain $subdomain does not have an associated IP address."
     else
-        echo "The subdomain $subdomain is an A record and points to $line"
+        echo "The subdomain $subdomain is a A record and points to $line"
     fi
 }
 
