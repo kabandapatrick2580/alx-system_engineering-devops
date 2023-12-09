@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# nginx configuration server to port 80 but in short way
+sed -i '/^\tlisten.*/s/8080/80/g' /etc/nginx/sites-enabled/default
+service nginx restart
+pkill -o nginx
