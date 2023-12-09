@@ -35,7 +35,7 @@ defaults
 
 frontend patrickkabanda_frontend
     	bind *:80
-		bind*:443 ssl crt /etc/haproxy/certs/www.genarts.tech.pem
+		bind *:443 ssl crt /etc/haproxy/certs/www.genarts.tech.pem
         redirect scheme https if !{ ssl_fc }
 		mode http
 		default_backend patrickkabanda_backend
