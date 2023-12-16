@@ -1,0 +1,29 @@
+"How Your Browser Connects to Google: A Simple Guide"
+
+Have you ever wondered what happens behind the scenes when you type "https://www.google.com" into your browser and press Enter? It may seem like magic, but there's a fascinating journey that takes place to bring Google's search page to your screen.
+
+1. DNS Request:
+Your browser asks a DNS server for the IP address of "www.google.com," like consulting an address book.
+
+2. TCP/IP:
+Using TCP/IP, your browser establishes a reliable communication channel to send and receive data.
+
+3. Firewall:
+A firewall checks data for safety, acting as a digital bouncer before your browser connects to Google.
+
+4. HTTPS/SSL:
+Your browser uses HTTPS with SSL or TLS for encryption, securing the data exchange with Google.
+
+5. Load-Balancer:
+Digital traffic directors and load-balancers distribute requests across Google's servers for efficient handling.
+
+6. Web Server:
+Google's powerful web servers handle your request, retrieving and sending back the requested web page.
+
+7. Application Server:
+Assisting the web server, and application servers in managing complex tasks like personalized search results.
+
+8. Database:
+Google's robust databases store and retrieve data swiftly, providing instant results for your searches.
+
+hashtag#alxafrica hashtag#dohardthings 
