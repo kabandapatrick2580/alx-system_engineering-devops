@@ -5,19 +5,13 @@
 sudo apt-get -y update
 sudo apt-get -y install haproxy
 
-# Define the HAProxy configuration
+# Define the HAProxy configuration on a backend server
 server_config=\
 "
-frontend patrickkabanda_frontend
-    bind *:80
-    mode http
-    default_backend patrickkabanda_backend
-
 backend patrickkabanda_backend
     balance roundrobin
     mode http
     server 306856-web-01 52.86.114.220:80 check
-    server 306856-web-02 52.3.254.18:80 check
 "
 echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
 
