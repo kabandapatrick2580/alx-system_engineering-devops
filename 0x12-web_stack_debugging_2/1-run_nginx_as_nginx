@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Script to configure a container to run Nginx as the nginx
+
+# Stop Apache (assuming apache2 is the process name)
+pkill apache2
+
+# Change the default Nginx port from 80 to 8080 in the default site configuration
+sed -i 's/80/8080/g' /etc/nginx/sites-available/default
+
+# Change permissions of the nginx.conf file to 644
+chmod 644 /etc/nginx/nginx.conf
+
+# Restart the Nginx service
+sudo -u nginx service nginx restart
