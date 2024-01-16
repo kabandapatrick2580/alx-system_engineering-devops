@@ -1,40 +1,39 @@
 #!/usr/bin/python3
+"""Querry number of subscribers."""
+import requests
 
-# Importing the 'get' function from the 'requests' module
-from requests import get
+# the Reddit API credentials
+user_agent = 'kabandapatrick2580'
 
-def number_of_subscribers(subreddit_name):
+
+def number_of_subscribers(subreddit):
     """
-    Get the number of subscribers for a given subreddit.
+    Query the Reddit API and return the number of subscribers
+    for a given subreddit.
 
-    Parameters:
-    - subreddit_name (str): The name of the subreddit.
+    Args:
+        subreddit (str): The name of the subreddit to query.
 
     Returns:
-    - int: The number of subscribers or 0 if an error occurs.
+        int: The number of subscribers for the subreddit,
+        or 0 if the subreddit is invalid or an error occurs.
     """
-
-    # Check if the subreddit_name is valid
-    if subreddit_name is None or not isinstance(subreddit_name, str):
-        return 0
-
-    # Construct the URL for the subreddit information
-    subreddit_url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit_name)
-    
-    # Set the user-agent header to avoid issues with Reddit API
-    request_headers = {'User-Agent': 'Patrick'}
-
-    # Make a GET request to the Reddit API
-    response = get(subreddit_url, headers=request_headers)
-    
-    # Parse the JSON response
-    response_data = response.json()
+    url = f"https://www.reddit.com/r/{subreddit}/about.json"
+    headers = {
+        "User-Agent": user_agent
+    }
 
     try:
-        # Extract the number of subscribers from the JSON response
-        subscribers_count = response_data.get('data').get('subscribers')
-        return subscribers_count
+        response = requests.get(url, headers=headers, allow_redirects=False)
 
-    except Exception:
-        # Return 0 if there's an exception during the extraction
+        # Check if the subreddit is invalid (HTTP status code 404)
+        if response.status_code == 404:
+            return 0
+
+        data = response.json()
+        subscribers = data['data']['subscribers']
+        return subscribers
+    except Exception as e:
+        print(f"An error occurred: {e}")
         return 0
+    
